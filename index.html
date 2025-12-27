@@ -1,11 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Camp Survival - Golden Master</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
 </head>
 <body>
-    
+    <div id="main-menu">
+        <h1 class="game-title">CAMP SURVIVAL</h1>
+        <div class="menu-buttons">
+            <button id="btn-start">START SPIL</button>
+            <button id="btn-controls">KONTROLLER</button>
+        </div>
+        <p class="credits">v1.0 Golden Master | Ultra Graphics Enabled</p>
+    </div>
+
+    <div id="game-container"></div>
+
+    <div id="ui-layer" style="display:none;">
+        <div id="crosshair">+</div>
+        
+        <div id="stats-container">
+            <div class="stat"><span class="icon">❤️</span> <span id="hp-val">100</span>%</div>
+            <div class="stat"><span class="icon">🍖</span> <span id="food-val">100</span>%</div>
+            <div class="stat"><span class="icon">💧</span> <span id="water-val">100</span>%</div>
+            <div class="stat"><span class="icon">🌡️</span> <span id="temp-val">Ok</span></div>
+        </div>
+
+        <div id="radio-signal">
+            SIGNAL: <span id="signal-strength">___</span>
+        </div>
+
+        <div id="interaction-text"></div>
+
+        <div id="inventory" style="display:none;">
+            <h2>RYGSÆK</h2>
+            <div id="inv-grid"></div>
+            <div id="crafting-area">
+                <h3>Crafting</h3>
+                <button id="craft-axe">Sten-Økse (1 Sten, 1 Træ)</button>
+                <button id="craft-rod">Fiskestang (2 Træ, 1 Snor)</button>
+                <button id="craft-fire">Bål (4 Træ)</button>
+                <button id="craft-wall">Træ-Mur (4 Træ)</button>
+            </div>
+        </div>
+
+        <div id="death-screen" style="display:none;">
+            <h1>DU OMKOM</h1>
+            <p id="death-reason">Årsag: Ukendt</p>
+            <button onclick="location.reload()">PRØV IGEN</button>
+        </div>
+        
+        <div id="blood-vignette"></div>
+    </div>
+
+    <script type="module" src="game.js"></script>
 </body>
 </html>
